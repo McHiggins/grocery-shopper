@@ -24,11 +24,21 @@ do:
 `$ pip install -r requirements.txt`
 
 ## Usage
-
+```
+usage: main.py [-h] [-a ACTION]
+```
 1. Configure your `config.yaml` file with needed paths and urls. You will need links to the specific Penny or Edeka 
    store.
    
-2. Start the `main.py -d` to download all data for the current week and save them to `..//data//` path. Where you
+2. Start the `main.py -a download` to download all data for the current week and save them to `..//data//` path. Where you
 can open them with Excel or other tools.
    1. To compare the offer dataframes from each store with your items in the `standard_einkauf.csv` file, you can 
-    simply run `main.py -c` to compare the items and return a list of matching items.
+    simply run `main.py -a compare` to compare the items and return a list of matching items.
+
+
+```
+optional arguments:
+-h, --help            show this help message and exit
+-a ACTION, --action ACTION
+        Generate or Download offerlist with compare or download
+```

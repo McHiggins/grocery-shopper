@@ -1,3 +1,4 @@
+import argparse
 import offer_finder
 import yaml
 
@@ -38,7 +39,18 @@ def compare_reader(cfg: dict):
     return matching_offers
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-a", "--action", help="Download offer list or generate shopping list with ""download"" or "
+                                           """compare""")
+args = parser.parse_args()
+
+
 if __name__ == "__main__":
-    cfg_file = configloader(path="../data/config/config_higgins.yaml")
-    downloaded_offers = download_offers(cfg=cfg_file)
-    compare_reader = compare_reader(cfg_file)
+    if args.compare == "compare":
+        cfg_file = configloader(path="../data/config/config_higgins.yaml")
+        compare_reader(cfg_file)
+        print("shopping list has been generated.")
+    if args.compare == "download":
+        cfg_file = configloader(path="../data/config/config_higgins.yaml")
+        downloaded_offers = download_offers(cfg=cfg_file)
+        print("Weekly offers has been downloaded.")
