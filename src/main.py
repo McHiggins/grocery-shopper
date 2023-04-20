@@ -40,5 +40,5 @@ def compare_reader(cfg: dict):
 
 if __name__ == "__main__":
     cfg_file = configloader(path="../data/config/config_higgins.yaml")
-    offers = download_offers(cfg=cfg_file)
+    downloaded_offers = download_offers(cfg=cfg_file)
     compare_reader = compare_reader(cfg_file)
